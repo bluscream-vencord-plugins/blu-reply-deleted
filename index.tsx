@@ -1,3 +1,10 @@
+export const pluginInfo = {
+    id: "replyDeleted",
+    name: "Message Logger Reply",
+    description: "Intercepts replies to deleted messages and sends them as quoted text instead. This plugin requires MessageLogger to be able to quote, otherwise it will just stop you from trying.",
+    color: "#7289da"
+};
+
 import { definePluginSettings } from "@api/Settings";
 import definePlugin, { OptionType } from "@utils/types";
 import { findByProps } from "@webpack";
@@ -69,12 +76,12 @@ function processTemplate(template: string, message: any, replyContent: string): 
 
 import { Logger } from "@utils/Logger";
 
-const pluginId = "messageLoggerReply";
-const pluginName = "Message Logger Reply";
-const logger = new Logger(pluginName, "#7289da");
+
+
+const logger = new Logger(pluginInfo.name, pluginInfo.color);
 
 export default definePlugin({
-    name: pluginName,
+    name: "Message Logger Reply",
     description: "Intercepts replies to deleted messages and sends them as quoted text instead. This plugin requires MessageLogger to be able to quote, otherwise it will just stop you from trying.",
     authors: [{name:"Bluscream",id:331103316650393611n},{name:"Antigravity AI",id:0n}],
     settings,
